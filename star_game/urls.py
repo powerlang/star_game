@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^game/', include('game.urls')),
     url(r'^media/(?P<path>.*)$', "django.views.static.serve",
         {'document_root': django.conf.settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', "django.views.static.serve",
+        {'document_root': django.conf.settings.STATIC_ROOT}),
 ]
 
 admin.site.site_header = '路书明星游戏 管理'
