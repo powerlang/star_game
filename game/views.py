@@ -52,8 +52,7 @@ def query_qr(request):
     choice_type = GroupInfo.CHOICE_YES if choice == 'yes' else GroupInfo.CHOICE_NO
 
     group_objs = GroupInfo.objects.filter(status=GroupInfo.STATUS_USE)\
-                                  .filter(choice=choice_type)\
-                                  .order_by("-pk").all()[:1]
+                                  .filter(choice=choice_type).all()[:1]
     if not group_objs:
         return HttpResponse(json.dumps({'success': False, 'result': 'There is no inuse group!'}),
                             content_type='application/json')
