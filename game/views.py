@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.views.decorators.csrf import csrf_exempt
 
 import json
 import random
@@ -39,10 +40,14 @@ def query_star(request):
                               context_instance=RequestContext(request)
                               )
 
+@csrf_exempt
 def query_qr(request):
-    choice = request.GET.get('choice', 'yes').strip()
-    name = request.GET.get('name', '').strip()
-    user_name = request.GET.get('username', '').strip()
+    if request.method == 'GET':
+        return HttpResponseRedirect('/game/')
+
+    choice = request.POST.get('choice', 'yes').strip()
+    name = request.POST.get('name', '').strip()
+    user_name = request.POST.get('username', '').strip()
 
     group_objs = GroupInfo.objects.filter(status=GroupInfo.STATUS_USE).order_by("-pk").all()[:2]
     if not group_objs:

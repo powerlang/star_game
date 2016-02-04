@@ -18,16 +18,21 @@
 	<div class="container pageResult">
 		<img src="/static/images/topHeader.jpg" class="topHeader"/>
 	
-        <h1>- {{ name }} -</h1>
-        {{ intro }}
-        <div class="avatarBig"><img src="/media/{{ avatar }}"/></div>
-		<h2 class="wouldU">宝贝，你愿意为我们的旅行做计划么？</h2>
-		
-		
-		<div class="btnWrap">
-				<a href="" onclick="query_qr('yes');event.returnValue=false"class="btnCircle">YES</a>
-				<a href="" onclick="query_qr('no');event.returnValue=false"class="btnCircle">NO</a>
-		</div>
+        <form id="myForm" method="POST" action="/game/qr">
+            <input id="choice" type="hidden" name="choice" />
+            <input type="hidden" name="name"  value="{{ name }}"/>
+            <input type="hidden" name="username" value="{{ username }}" />
+            <h1>- {{ name }} -</h1>
+            {{ intro }}
+            <div class="avatarBig"><img src="/media/{{ avatar }}"/></div>
+            <h2 class="wouldU">宝贝，你愿意为我们的旅行做计划么？</h2>
+            
+            
+            <div class="btnWrap">
+                <a href="" onclick="query_qr('yes');event.returnValue=false"class="btnCircle">YES</a>
+                <a href="" onclick="query_qr('no');event.returnValue=false"class="btnCircle">NO</a>
+            </div>
+        </form>
 		
 		
 		<div>快来围观其他小伙伴的明星旅伴！</div>
@@ -70,8 +75,8 @@
 	
     <script>
         function query_qr(choice) {
-            url = "/game/qr?choice="+choice+"&name={{ name }}&username={{ username }}"
-            window.location.href = url;
+            $("#choice").val(choice);
+            $("#myForm").submit();
         }
 
     </script>
