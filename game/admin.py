@@ -25,14 +25,14 @@ class StarInfoAdmin(admin.ModelAdmin):
 
 class GroupInfoAdmin(admin.ModelAdmin):
     list_per_page = 25
-    list_display = ['id', 'title', 'qr_preview', 'status']
+    list_display = ['id', 'title', 'qr_preview', 'status', 'choice']
 
-    fieldsets = ((None, {'fields': ('title', 'qrPic', 'status')}),)
+    fieldsets = ((None, {'fields': ('title', 'qrPic', 'status', 'choice')}),)
     readonly_fields = ['status']
-    list_filter = ['status']
+    list_filter = ['status', 'choice']
     ordering = ['id']
 
-    actions = ['switch_inuse', 'switch_full']
+    actions = ['switch_inuse', 'switch_full', 'toggle_choice']
 
     def get_actions(self, request):
         actions = super(GroupInfoAdmin, self).get_actions(request)
@@ -45,6 +45,12 @@ class GroupInfoAdmin(admin.ModelAdmin):
             return
 
         group = queryset.all()[0]
+        choice = group.choice
+        if GroupInfo.objects.filter(status=GroupInfo.STATUS_USE)\
+                            .filter(choice=choice).count() > 0:
+            messages.error(request, '每种答案类型的群只能有一个在使用中')
+            return
+
         group.status = GroupInfo.STATUS_USE
         group.save()
 
@@ -62,6 +68,18 @@ class GroupInfoAdmin(admin.ModelAdmin):
 
         self.message_user(request, '切换成功!')
     switch_full.short_description = u'将选中的群切换为人员已满'
+
+    def toggle_choice(self, request, queryset):
+        if queryset.count() > 1:
+            messages.error(request, '请选择一个微信群')
+            return
+
+        group = queryset.all()[0]
+        group.choice = GroupInfo.CHOICE_NO if group.choice == GroupInfo.CHOICE_YES else GroupInfo.CHOICE_YES
+        group.save()
+
+        self.message_user(request, '切换成功!')
+    toggle_choice.short_description = u'切换选中群的答案选项'
 
 
 admin.site.register(StarInfo, StarInfoAdmin)

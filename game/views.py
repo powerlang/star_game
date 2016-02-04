@@ -49,14 +49,16 @@ def query_qr(request):
     name = request.POST.get('name', '').strip()
     user_name = request.POST.get('username', '').strip()
 
-    group_objs = GroupInfo.objects.filter(status=GroupInfo.STATUS_USE).order_by("-pk").all()[:2]
+    choice_type = GroupInfo.CHOICE_YES if choice == 'yes' else GroupInfo.CHOICE_NO
+
+    group_objs = GroupInfo.objects.filter(status=GroupInfo.STATUS_USE)\
+                                  .filter(choice=choice_type)\
+                                  .order_by("-pk").all()[:1]
     if not group_objs:
         return HttpResponse(json.dumps({'success': False, 'result': 'There is no inuse group!'}),
                             content_type='application/json')
 
-    group_objs = [obj for obj in group_objs]
-    qr_index = 0 if choice == 'yes' else -1
-    qr = group_objs[qr_index].qrPic.name
+    qr = group_objs[0].qrPic.name
     template = 'game/qrYes.html' if choice == 'yes' else 'game/qrNo.html'
     return render_to_response(template, {'qr': qr, 'name': name, 'user_name': user_name},
                               context_instance=RequestContext(request)

@@ -46,9 +46,14 @@ class GroupInfo(models.Model):
     STATUS_FULL = 2
     _STATUS_ENUM = {STATUS_NEW: "未使用", STATUS_USE: "使用中", STATUS_FULL: "人员已满"}
 
+    CHOICE_YES = 0
+    CHOICE_NO = 1
+    _CHOICE_ENUM = {CHOICE_YES: "YES群", CHOICE_NO: "NO群"}
+
     title = models.CharField(max_length=64, verbose_name="群名称")
     qrPic = models.ImageField(max_length=256, verbose_name="群二维码", upload_to=PathAndRename('qrPic'))
     status = models.PositiveIntegerField(default=STATUS_NEW, choices=_STATUS_ENUM.items(), verbose_name="群状态")
+    choice = models.PositiveIntegerField(default=CHOICE_YES, choices=_CHOICE_ENUM.items(), verbose_name="是否为YES群")
     class Meta:
         app_label = "game"
         verbose_name = "微信群"
