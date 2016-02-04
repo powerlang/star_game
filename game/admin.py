@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django import forms
+from django.contrib import messages
 
 from .models import StarInfo, GroupInfo
 
@@ -40,7 +41,7 @@ class GroupInfoAdmin(admin.ModelAdmin):
 
     def switch_inuse(self, request, queryset):
         if queryset.count() > 1:
-            self.message_user(request, '请选择一个微信群')
+            messages.error(request, '请选择一个微信群')
             return
 
         group = queryset.all()[0]
@@ -52,7 +53,7 @@ class GroupInfoAdmin(admin.ModelAdmin):
 
     def switch_full(self, request, queryset):
         if queryset.count() > 1:
-            self.message_user(request, '请选择一个微信群')
+            messages.error(request, '请选择一个微信群')
             return
 
         group = queryset.all()[0]
