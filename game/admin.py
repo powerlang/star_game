@@ -51,6 +51,8 @@ class GroupInfoAdmin(admin.ModelAdmin):
         group.status = GroupInfo.STATUS_USE
         group.save()
 
+        self.message_user(request, '切换成功!')
+
     switch_group.short_description = u'将选中的群切换为使用中'
 
 
