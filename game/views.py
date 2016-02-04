@@ -17,12 +17,12 @@ def query_star(request):
     random_idx = abs(hash(name)) % star_count
     star_obj = StarInfo.objects.all()[random_idx]
 
-    group_objs = GroupInfo.objects.filter(status=GroupInfo.STATUS_USE).all()
+    group_objs = GroupInfo.objects.filter(status=GroupInfo.STATUS_USE).order_by("-pk").all()[:2]
     if not group_objs:
         return HttpResponse(json.dumps({'success': False, 'result': 'There is no inuse group!'}),
                             content_type='application/json')
 
     star = {'name': star_obj.name, 'intro': star_obj.intro, 'avatar': star_obj.avatar.name}
-    result = {'star': star, 'qr': group_objs[0].qrPic.name}
+    result = {'star': star, 'qr': [group.qrPic.name for group in group_objs]}
     return HttpResponse(json.dumps({'sucess': True, 'result': result}),
                         content_type='application/json')
