@@ -3,6 +3,10 @@ from django import forms
 from django.contrib import messages
 
 from .models import StarInfo, GroupInfo
+from django.contrib.auth.models import *
+
+admin.site.unregister(User)
+admin.site.unregister(Group)
 
 # Register your models here.
 class StarInfoForm(forms.ModelForm):

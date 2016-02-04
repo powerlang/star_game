@@ -312,3 +312,14 @@ transition:all 0.3s;
 	top:0;
 	background:rgba(0,0,0,0.7);
 }
+
+.qrContainer {
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	margin: 0 auto;
+
+	background-position: -45px -83px;
+	background-size: 270px;
+	background-repeat: no-repeat;
+}

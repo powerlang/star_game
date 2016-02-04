@@ -21,17 +21,17 @@ def query_star(request):
     name = request.GET.get('name', '').strip()
     sex = request.GET.get('sex', 'male').strip()
 
-    star_count = StarInfo.objects.count()
+    if sex == 'male':
+        query = StarInfo.objects.filter(role__in=[StarInfo.ROLE_ALL, StarInfo.ROLE_MALE])
+    else:
+        query = StarInfo.objects.filter(role__in=[StarInfo.ROLE_ALL, StarInfo.ROLE_FEMALE])
+
+    star_count = query.count()
     if star_count < 1:
         return HttpResponse(json.dumps({'success': False, 'result': 'There is no star!'}),
                             content_type='application/json')
 
     random_idx = abs(hash(name)) % star_count
-    if sex == 'male':
-        query = StarInfo.objects.filter(role__in=[StarInfo.ROLE_ALL, StarInfo.ROLE_MALE])
-    else:
-        query = StarInfo.objects.filter(role__in=[StarInfo.ROLE_ALL, StarInfo.ROLE_MALE])
-
     star_obj = query.all()[random_idx]
 
     star = {'name': star_obj.name, 'intro': star_obj.intro, 'avatar': star_obj.avatar.name, 'username': name}
