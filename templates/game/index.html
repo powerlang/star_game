@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta charset="UTF-8">
+<title>寻找你的明星旅伴</title>
+<link rel="Shortcut Icon" href="/static/images/favorite.ico" type="image/x-icon" />
+<link rel="Bookmark" href="/static/images/favorite.ico" type="image/x-icon" />
+<link rel="icon" href="/static/images/favorite.ico" type="image/x-icon" />
+<link href="/static/css/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/static/js/default.js"></script>
+</head>
+
+<body>
+	<img src="/static/images/weixinLogo.jpg" id="weixinLogo"/>
+	<div class="container pageHome">
+		<img src="/static/images/topHeader.jpg" class="topHeader"/>
+		<img src="/static/images/title1.png"/>
+		
+		
+		
+		<div class="radioSex">
+				<label class="lbRadio lbRadio1 on"><input type="radio" name="sex" value="male" checked/>男</label>
+				<label class="lbRadio lbRadio2"><input type="radio" name="sex" value="famale"/>女</label>
+		</div>
+		<input type="text" id="name" class="inputName" placeholder="请输入你的名字"/>
+		
+		
+		<div class="btnGo">
+			<a href="" onclick="query_star();event.returnValue=false"><img src="/static/images/btnGo.png" width="250"/></a>
+		</div>
+		<div class="footer">
+				<a class="lushuLink" href="http://www.lushu.com" target="_blank">lushu.com</a>
+				<img src="/static/images/footer.jpg"/>
+		</div>
+		
+	</div>
+
+    <script>
+        function query_star() {
+            name = $("#name").val();
+            if (name == "") {
+                return false;
+            }
+            sex = $("input[name='sex']:checked").val();
+            window.location.href ="/game/query_star?name="+name+"&sex="+sex;
+        }
+
+    </script>
+</body>
+</html>

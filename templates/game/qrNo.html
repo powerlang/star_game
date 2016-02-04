@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta charset="UTF-8">
+<title>{{ user_name }}和{{ name }} 一起去旅行</title>
+<link rel="Shortcut Icon" href="/static/images/favorite.ico" type="image/x-icon" />
+<link rel="Bookmark" href="/static/images/favorite.ico" type="image/x-icon" />
+<link rel="icon" href="/static/images/favorite.ico" type="image/x-icon" />
+<link href="/static/css/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/static/js/default.js"></script>
+</head>
+
+<body>
+	<img src="/static/images/weixinLogo.jpg" id="weixinLogo"/>
+	<div class="container pageQr">
+		<img src="/static/images/topBg.jpg" class="topBg"/>
+		<h2>加入 [ 明星结伴旅行群 ]<br/>寻找愿意为你做路书的那个TA！</h2>
+        <img src="/media/{{ qr }}" width="165"/>
+		<h3>转给小伙伴，炫一下你的明星旅伴！</h3>
+		<span class="btnBig btnShare">点击分享</span>
+
+		<div class="footer">
+			<a class="lushuLink" href="http://www.lushu.com" target="_blank">lushu.com</a>
+			<img src="/static/images/footer.jpg"/>
+		</div>
+	</div>
+	
+	<div class="shareMask"><img src="/static/images/shareMask.png"/></div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+html, body{
+padding: 0;
+width: 100%;
+max-width:750px;
+margin:0 auto;
+min-width:320px;
+height:100%;
+	background:#b12331;
+color: #3c3c3c;
+font-size: 18px;
+font-family: "Hiragino Sans GB", "Microsoft YaHei", Arial;
+
+text-align:center;
+color:#fff;
+
+-moz-osx-font-smoothing: grayscale;
+-webkit-font-smoothing: antialiased;
+}
+
+input{
+	font-family: "Hiragino Sans GB", "Microsoft YaHei", Arial;
+}
+
+.container{
+/*	min-height:100%;
+	max-width:750px;
+	margin:auto;
+	overflow-scrolling: touch;*/
+}
+
+
+*:focus {
+outline: 0;
+}
+
+img{
+border:none;
+padding:0;
+margin:0;
+max-width:100%;
+display:inline-block;
+}
+
+a{
+blr:expression(this.onFocus=this.blur());
+text-decoration:none;
+color:#fff;
+
+
+-webkit-transition:all 0.2s;
+-moz-transition:all 0.2s;
+-o-transition:all 0.2s;
+transition:all 0.2s;
+}
+
+a:focus{
+-moz-outline-style: none;
+}
+
+a:hover{
+text-decoration: none;
+}
+
+
+
+h1{
+font-size: 24px;
+margin: 10px 0 5px 0;
+}
+
+h2{
+font-size:18px;
+margin:0 0 10px 0;
+}
+
+h3{
+	font-size:16px;
+}
+
+.btnBig{
+border: 1px #f4f3b8 solid;
+width: 220px;
+height: 50px;
+line-height: 50px;
+position: relative;
+display: inline-block;
+margin: 0 20px;
+cursor: pointer;
+
+text-align: center;
+
+-webkit-border-radius: 60px;
+-moz-border-radius: 60px;
+border-radius: 60px;
+
+-webkit-transition:all 0.2s;
+-moz-transition:all 0.2s;
+-o-transition:all 0.2s;
+transition:all 0.2s;
+}
+
+
+#weixinLogo{
+position: fixed;
+z-index: -1;
+
+filter:alpha(opacity=0);
+-moz-opacity:0;
+-khtml-opacity: 0;
+opacity: 0;
+}
+
+
+.inputName{
+	width:220px;
+	font-size:25px;
+	text-align:center;
+	height:55px;
+	line-height:55px;
+	
+	border-radius:8px;
+	background:#fff;
+	border:none;
+}
+ 
+.radioSex{
+	width:220px;
+	height:50px;
+	position:relative;
+	
+	border:1px #fff solid;
+	border-radius:60px;
+	margin:10px auto 25px auto;
+}
+
+.radioSex .lbRadio{
+	position:absolute;
+	width:110px;
+	height:50px;
+	line-height:50px;
+	display:block;
+		border-radius:60px;
+		font-size:24px;
+		font-weight:bold;
+}
+
+.lbRadio1{
+	left:0;
+	top:0;
+}
+
+
+.lbRadio2{
+	right:0;
+	top:0;
+}
+
+
+.lbRadio input{
+	opacity:0;
+	position:absolute;
+}
+
+.lbRadio.on {
+background:#fff;
+color:#b12331;
+}
+
+
+.lbRadio.on img{
+	opacity:0.3;
+}
+
+.btnGo{
+	margin-top:40px;
+}
+
+.btnGo a{
+	 display:inline-block;
+}
+
+.footer{
+		margin-top:30px;
+}
+
+.lushuLink{
+	font-size:12px;
+	display:inline-block;
+}
+.footer img{
+display:block;
+}
+
+
+.avatarBig{
+	margin:15px 15px;
+}
+
+.wouldU{
+	font-weight:bold;
+	color:#e8bb6c;
+}
+
+
+.btnCircle{
+	width:72px;
+	height:72px;
+		line-height:72px;
+	border-radius:72px;
+	
+	border:3px #fff solid;
+	font-size:24px;
+	text-align:center;
+
+	display:inline-block;
+	font-weight:bold;
+}
+
+.btnWrap{
+	width:100%;
+	margin: 0 auto;
+	clear:both;
+	padding:10px 0 30px 0;
+}
+
+.btnWrap .btnCircle{
+margin:0 30px;
+}
+
+
+.otherList{
+	background:rgba(255,255,255,0.2);
+	margin:20px 15px;
+	font-size:12px;
+	text-align:left;
+	position:relative;
+}
+
+.otherList:before{
+content:" ";
+display:block;
+background:url(../images/arrow.png) left top no-repeat;
+width:21px;
+height:11px;
+position:absolute;
+top:-11px;
+left:30px;
+background-size:21px 11px;
+opacity:0.2;
+}
+
+.otherList ul{
+margin:0px;
+padding:0px 15px;
+list-style:none;
+height:227px;
+overflow:hidden;
+}
+
+
+.otherList li{
+	overflow:hidden;
+	position:relative;
+	min-height:35px;
+	border-bottom:1px #af2534 solid;
+	padding:10px 5px 10px 50px;
+}
+
+.otherList .avatar{
+	width:35px;
+	height:35px;
+	border-radius:35px;
+	overflow:hidden;
+	display:inline-block;
+	
+	position:absolute;
+	left:5px;
+	top:10px;
+}
+
+
+
+.pageQr h2{
+	margin:45px 0 20px 0;
+}
+
+.pageQr h3{
+	margin:30px 0 15px 0;
+}
+
+
+.slideTop{
+	margin-top:-56px;
+	
+	
+-webkit-transition:all 0.3s;
+-moz-transition:all 0.23;
+-o-transition:all 0.3s;
+transition:all 0.3s;
+}
+
+
+.shareMask{
+	position:fixed;
+	z-index:9;
+	width:100%;
+	height:100%;
+	display:none;
+	
+	
+	left:0;
+	top:0;
+	background:rgba(0,0,0,0.7);
+}

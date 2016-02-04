@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta charset="UTF-8">
+<title>寻找你的明星旅伴</title>
+<link rel="Shortcut Icon" href="/static/images/favorite.ico" type="image/x-icon" />
+<link rel="Bookmark" href="/static/images/favorite.ico" type="image/x-icon" />
+<link rel="icon" href="/static/images/favorite.ico" type="image/x-icon" />
+<link href="/static/css/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/static/js/default.js"></script>
+</head>
+
+<body>
+	<img src="/static/images/weixinLogo.jpg" id="weixinLogo"/>
+	<div class="container pageResult">
+		<img src="/static/images/topHeader.jpg" class="topHeader"/>
+	
+        <h1>- {{ name }} -</h1>
+        {{ intro }}
+        <div class="avatarBig"><img src="/media/{{ avatar }}"/></div>
+		<h2 class="wouldU">宝贝，你愿意为我们的旅行做计划么？</h2>
+		
+		
+		<div class="btnWrap">
+				<a href="" onclick="query_qr('yes');event.returnValue=false"class="btnCircle">YES</a>
+				<a href="" onclick="query_qr('no');event.returnValue=false"class="btnCircle">NO</a>
+		</div>
+		
+		
+		<div>快来围观其他小伙伴的明星旅伴！</div>
+		
+		<div class="otherList">
+			<ul>
+				<li><span class="avatar"><img src="/static/images/avatar/huge.jpg"/></span>胡歌已牵手霍建华去旅行，是不是感觉冷冷的冰雨在脸上胡乱的拍？</li>
+				<li><span class="avatar"><img src="/static/images/avatar/sicong.jpg"/></span>思聪已牵手林更新去旅行，有没有被人民币甩一脸的感觉？</li>
+				<li><span class="avatar"><img src="/static/images/avatar/loki.jpg"/></span>洛基已牵手雷神去旅行，好想看他们在海滩化身海尔兄弟！</li>
+				<li><span class="avatar"><img src="/static/images/avatar/han.jpg"/></span>韩寒已牵手小四去旅行，看好你们的长短脚之恋！</li>
+				<li><span class="avatar"><img src="/static/images/avatar/zhang.jpg"/></span>张芃芃已牵手绿篱去旅行，还有太子、九王和赵王暗中尾随😁</li>
+				<li><span class="avatar"><img src="/static/images/avatar/jack.jpg"/></span>Jack已牵手Rose去旅行，他们的豪华邮轮上还有空缺席位，约吗？</li>
+				<li><span class="avatar"><img src="/static/images/avatar/sherlock.jpg"/></span>卷福已牵手华生去旅行，走到哪里都有谋杀案，还能不能好好的蜜月！</li>
+				<li><span class="avatar"><img src="/static/images/avatar/do.jpg"/></span>都教授已牵手千颂伊去旅行，“都敏俊xi，外星有炸鸡和啤酒吗？”</li>
+				<li><span class="avatar"><img src="/static/images/avatar/yudi.jpg"/></span>玉帝已牵手王母娘娘去旅行，夫妻和谐，才能带来天界和谐</li>
+				<li><span class="avatar"><img src="/static/images/avatar/tangseng.jpg"/></span>唐僧已牵手女儿国国王去旅行，“女王大人，贫僧带你去西方极乐世界看看？”</li>
+				<li><span class="avatar"><img src="/static/images/avatar/shuke.jpg"/></span>舒克已牵手贝塔去旅行，飞机＋坦克，史上最炫酷飞行工具出动，</li>
+				<li><span class="avatar"><img src="/static/images/avatar/shejing.jpg"/></span>蛇精已牵手爷爷去旅行，“妖怪，还我爷爷！” “孩子们，你们先走，爷爷现在挺好的😍”</li>
+				<li><span class="avatar"><img src="/static/images/avatar/xuxian.jpg"/></span>许仙已牵手白娘子去旅行，娘子，世界那么大，我们就别只看西湖美景啦。</li>
+				<li><span class="avatar"><img src="/static/images/avatar/ultraman.jpg"/></span>奥特曼已牵手小怪兽去旅行，走到哪打到哪才是幸福。</li>
+				<li><span class="avatar"><img src="/static/images/avatar/sheldon.jpg"/></span>谢耳朵已牵手佩尼去旅行，Penny！Penny！Penny！重要的事情说三遍！</li>
+				<li><span class="avatar"><img src="/static/images/avatar/wentian.jpg"/></span>闻天已牵手大亮去旅行，我带上你，你带上cto，幸福就是一家三口在一起！</li>
+
+	
+			</ul>
+		</div>
+		
+		
+		
+		
+		
+		
+		<div class="footer">
+				<a class="lushuLink" href="http://www.lushu.com" target="_blank">lushu.com</a>
+				<img src="/static/images/footer.jpg"/>
+		</div>
+		
+		
+	</div>
+	
+    <script>
+        function query_qr(choice) {
+            url = "/game/qr?choice="+choice+"&name={{ name }}&username={{ username }}"
+            window.location.href = url;
+        }
+
+    </script>
+</body>
+</html>

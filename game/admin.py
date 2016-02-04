@@ -16,7 +16,7 @@ class StarInfoAdmin(admin.ModelAdmin):
     form = StarInfoForm
 
     list_per_page = 25
-    list_display = ['name', 'avatar_preview',  'intro']
+    list_display = ['name', 'avatar_preview',  'intro', 'role']
 
     def get_actions(self, request):
         return None

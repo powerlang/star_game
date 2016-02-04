@@ -16,9 +16,16 @@ class PathAndRename(object):
         return os.path.join(self.path, filename)
 
 class StarInfo(models.Model):
+    ROLE_ALL = 0
+    ROLE_MALE = 1
+    ROLE_FEMALE = 2
+    _ROLE_ENUM = {ROLE_MALE: "男偶像", ROLE_FEMALE: "女偶像", ROLE_ALL: "男女偶像"}
+
     name = models.CharField(max_length=64, verbose_name="姓名")
     intro = models.CharField(max_length=1024, verbose_name="介绍", default="")
     avatar = models.ImageField(max_length=256, verbose_name="头像", upload_to=PathAndRename('avatar'))
+    role = models.PositiveIntegerField(default=ROLE_ALL, choices=_ROLE_ENUM.items(), verbose_name="偶像类型")
+
     class Meta:
         app_label = "game"
         verbose_name = "明星"
