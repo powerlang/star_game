@@ -197,20 +197,6 @@ display:block;
 }
 
 
-.btnCircle{
-	width:125px;
-	height:48px;
-	line-height:48px;
-	border-radius:10px;
-	
-	border:1px #fff solid;
-	font-size:24px;
-	text-align:center;
-
-	display:inline-block;
-	font-weight:bold;
-}
-
 .btnWrap{
 	width:100%;
 	margin: 0 auto;
@@ -219,7 +205,8 @@ display:block;
 }
 
 .btnWrap .btnCircle{
-margin:0 8px;
+margin:0 15px;
+display:inline-block;
 }
 
 
@@ -310,6 +297,13 @@ transition:all 0.3s;
 	left:0;
 	top:0;
 	background:rgba(0,0,0,0.7);
+}
+
+
+.qrCode{
+	margin:auto;
+	width:165px;
+	height:165px;
 }
 
 .qrContainer {
