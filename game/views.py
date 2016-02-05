@@ -17,9 +17,13 @@ def start_game(request):
                               )
 
 
+@csrf_exempt
 def query_star(request):
-    name = request.GET.get('name', '').strip()
-    sex = request.GET.get('sex', 'male').strip()
+    if request.method == 'GET':
+        return HttpResponseRedirect('/game/')
+
+    name = request.POST.get('name', '').strip()
+    sex = request.POST.get('sex', 'male').strip()
 
     if sex == 'male':
         query = StarInfo.objects.filter(role__in=[StarInfo.ROLE_ALL, StarInfo.ROLE_MALE])
@@ -31,7 +35,7 @@ def query_star(request):
         return HttpResponse(json.dumps({'success': False, 'result': 'There is no star!'}),
                             content_type='application/json')
 
-    random_idx = abs(hash(name)) % star_count
+    random_idx = random.randint(0, star_count-1)
     star_obj = query.all()[random_idx]
 
     star = {'name': star_obj.name, 'intro': star_obj.intro, 'avatar': star_obj.avatar.name, 'username': name}
@@ -49,10 +53,8 @@ def query_qr(request):
     name = request.POST.get('name', '').strip()
     user_name = request.POST.get('username', '').strip()
 
-    choice_type = GroupInfo.CHOICE_YES if choice == 'yes' else GroupInfo.CHOICE_NO
-
     group_objs = GroupInfo.objects.filter(status=GroupInfo.STATUS_USE)\
-                                  .filter(choice=choice_type).all()[:1]
+                                  .all()[:1]
     if not group_objs:
         return HttpResponse(json.dumps({'success': False, 'result': 'There is no inuse group!'}),
                             content_type='application/json')

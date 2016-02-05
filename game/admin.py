@@ -29,14 +29,14 @@ class StarInfoAdmin(admin.ModelAdmin):
 
 class GroupInfoAdmin(admin.ModelAdmin):
     list_per_page = 25
-    list_display = ['id', 'title', 'qr_preview', 'status', 'choice']
+    list_display = ['id', 'title', 'qr_preview', 'status']
 
-    fieldsets = ((None, {'fields': ('title', 'qrPic', 'status', 'choice')}),)
+    fieldsets = ((None, {'fields': ('title', 'qrPic', 'status')}),)
     readonly_fields = ['status']
-    list_filter = ['status', 'choice']
+    list_filter = ['status']
     ordering = ['id']
 
-    actions = ['switch_inuse', 'switch_full', 'toggle_choice']
+    actions = ['switch_inuse', 'switch_full']
 
     def get_actions(self, request):
         actions = super(GroupInfoAdmin, self).get_actions(request)
@@ -49,10 +49,9 @@ class GroupInfoAdmin(admin.ModelAdmin):
             return
 
         group = queryset.all()[0]
-        choice = group.choice
         if GroupInfo.objects.filter(status=GroupInfo.STATUS_USE)\
-                            .filter(choice=choice).count() > 0:
-            messages.error(request, '每种答案类型的群只能有一个在使用中')
+                            .count() > 0:
+            messages.error(request, '只能有一个群在使用中')
             return
 
         group.status = GroupInfo.STATUS_USE

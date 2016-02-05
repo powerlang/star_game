@@ -7,7 +7,7 @@ min-width:320px;
 height:100%;
 	background:#b12331;
 color: #3c3c3c;
-font-size: 18px;
+font-size: 15px;
 font-family: "Hiragino Sans GB", "Microsoft YaHei", Arial;
 
 text-align:center;
@@ -65,7 +65,7 @@ text-decoration: none;
 
 h1{
 font-size: 24px;
-margin: 10px 0 5px 0;
+margin: 0 0 -4px 0;
 }
 
 h2{
@@ -78,7 +78,8 @@ h3{
 }
 
 .btnBig{
-border: 1px #f4f3b8 solid;
+font-size:24px;
+border: 1px #fff solid;
 width: 220px;
 height: 50px;
 line-height: 50px;
@@ -89,14 +90,9 @@ cursor: pointer;
 
 text-align: center;
 
--webkit-border-radius: 60px;
--moz-border-radius: 60px;
-border-radius: 60px;
-
--webkit-transition:all 0.2s;
--moz-transition:all 0.2s;
--o-transition:all 0.2s;
-transition:all 0.2s;
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
 }
 
 
@@ -193,22 +189,21 @@ display:block;
 
 
 .avatarBig{
-	margin:15px 15px;
+	margin:10px 15px 0 15px;
 }
 
 .wouldU{
-	font-weight:bold;
-	color:#e8bb6c;
+		margin:0px 15px;
 }
 
 
 .btnCircle{
-	width:72px;
-	height:72px;
-		line-height:72px;
-	border-radius:72px;
+	width:125px;
+	height:48px;
+	line-height:48px;
+	border-radius:10px;
 	
-	border:3px #fff solid;
+	border:1px #fff solid;
 	font-size:24px;
 	text-align:center;
 
@@ -220,17 +215,17 @@ display:block;
 	width:100%;
 	margin: 0 auto;
 	clear:both;
-	padding:10px 0 30px 0;
+	padding:10px 0 20px 0;
 }
 
 .btnWrap .btnCircle{
-margin:0 30px;
+margin:0 8px;
 }
 
 
 .otherList{
 	background:rgba(255,255,255,0.2);
-	margin:20px 15px;
+	margin:15px;
 	font-size:12px;
 	text-align:left;
 	position:relative;
@@ -280,8 +275,12 @@ overflow:hidden;
 
 
 
+.pageQr h1{
+	margin:30px 0 5px 0;
+}
+
 .pageQr h2{
-	margin:45px 0 20px 0;
+	margin:0px 0 20px 0;
 }
 
 .pageQr h3{
@@ -313,21 +312,20 @@ transition:all 0.3s;
 	background:rgba(0,0,0,0.7);
 }
 
+
+.qrCode{
+	margin:auto;
+	width:165px;
+	height:165px;
+}
+
 .qrContainer {
 	width: 180px;
 	height: 180px;
 	overflow: hidden;
 	margin: 0 auto;
-}
 
-.qrInner {
-	width: 270px;
-	height: 425px;
-	margin-left: -45px;
-	margin-top: -83px;
-}
-
-.qrInner img {
-	width: 270px;
-	height: 425px;
+	background-position: -45px -83px;
+	background-size: 270px;
+	background-repeat: no-repeat;
 }

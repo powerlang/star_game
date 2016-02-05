@@ -21,33 +21,30 @@
 		
 		
 		
-		<div class="radioSex">
-				<label class="lbRadio lbRadio1 on"><input type="radio" name="sex" value="male" checked/>男</label>
-				<label class="lbRadio lbRadio2"><input type="radio" name="sex" value="female"/>女</label>
-		</div>
-		<input type="text" id="name" class="inputName" placeholder="请输入你的名字"/>
-		
-		
-		<div class="btnGo">
-			<a href="" onclick="query_star();event.returnValue=false"><img src="/static/images/btnGo.png" width="250"/></a>
-		</div>
+        <form id="myForm" method="POST" action="/game/query_star">
+            <div class="radioSex">
+                    <label class="lbRadio lbRadio1 on"><input type="radio" name="sex" value="male" checked/>男</label>
+                    <label class="lbRadio lbRadio2"><input type="radio" name="sex" value="female"/>女</label>
+            </div>
+            <input type="text" name="name" class="inputName" placeholder="请输入你的名字"/>
+            
+            
+            <div class="btnGo">
+                <a href="" onclick="query_star();event.returnValue=false"><img src="/static/images/btnGo.png" width="250"/></a>
+            </div>
+        </form>
 		<div class="footer">
 				<a class="lushuLink" href="http://www.lushu.com" target="_blank">lushu.com</a>
 				<img src="/static/images/footer.jpg"/>
 		</div>
 		
 	</div>
-
     <script>
         function query_star() {
-            name = $("#name").val();
-            if (name == "") {
-                return false;
-            }
-            sex = $("input[name='sex']:checked").val();
-            window.location.href ="/game/query_star?name="+name+"&sex="+sex;
+            $("#myForm").submit();
         }
 
     </script>
+
 </body>
 </html>

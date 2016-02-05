@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 <meta name="apple-touch-fullscreen" content="yes">
 <meta charset="UTF-8">
-<title>寻找你的明星旅伴</title>
+<title>2016{{ username }}将牵手{{ name }}去旅行，来测一测你的明星旅伴吧！</title>
 <link rel="Shortcut Icon" href="/static/images/favorite.ico" type="image/x-icon" />
 <link rel="Bookmark" href="/static/images/favorite.ico" type="image/x-icon" />
 <link rel="icon" href="/static/images/favorite.ico" type="image/x-icon" />
@@ -25,12 +25,12 @@
             <h1>- {{ name }} -</h1>
             {{ intro }}
             <div class="avatarBig"><img src="/media/{{ avatar }}"/></div>
-            <h2 class="wouldU">宝贝，你愿意为我们的旅行做计划么？</h2>
+     		<div class="wouldU"><img src="/static/images/letsPlan.png" /></div>
             
             
             <div class="btnWrap">
-                <a href="" onclick="query_qr('yes');event.returnValue=false"class="btnCircle">YES</a>
-                <a href="" onclick="query_qr('no');event.returnValue=false"class="btnCircle">NO</a>
+                <a href="" onclick="query_qr('yes');event.returnValue=false"class="btnCircle">我愿意</a>
+                <a href="" onclick="query_qr('no');event.returnValue=false"class="btnCircle">才不要</a>
             </div>
         </form>
 		
@@ -60,7 +60,7 @@
 			</ul>
 		</div>
 		
-		
+		<a href="/"><img src="/static/images/btnReTest.jpg" width="245"/></a>
 		
 		
 		
