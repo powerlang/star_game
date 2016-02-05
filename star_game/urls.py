@@ -21,7 +21,7 @@ from django.http import HttpResponseRedirect
 from game import views
 
 urlpatterns = [
-    url(r'^$', lambda x: HttpResponseRedirect('/admin/')),
+    url(r'^$', lambda x: HttpResponseRedirect('/game/')),
     url(r'^admin/', admin.site.urls),
     url(r'^game/', include('game.urls')),
     url(r'^media/(?P<path>.*)$', "django.views.static.serve",

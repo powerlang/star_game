@@ -318,8 +318,16 @@ transition:all 0.3s;
 	height: 180px;
 	overflow: hidden;
 	margin: 0 auto;
+}
 
-	background-position: -45px -83px;
-	background-size: 270px;
-	background-repeat: no-repeat;
+.qrInner {
+	width: 270px;
+	height: 425px;
+	margin-left: -45px;
+	margin-top: -83px;
+}
+
+.qrInner img {
+	width: 270px;
+	height: 425px;
 }
